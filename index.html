@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+    
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Processing - Maneggia - TdI 2019 @LMU</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+        
+
+        <!-- .word is from old slides, don't know anymore for what it is -->
+        <style>
+            .word {color: #6d6d6d;} 
+            img {border-color: white;}
+            .monofont {font-family: Courier, monospace !important;}
+            code {font-size: 120%;}
+        </style>
+	</head>
+    
+    
+    
+  <body>
+    <div class="reveal">
+      <div class="slides">
+          
+<!---------------------------->
+<section>
+    <h4>Processing</h4>
+    <p>Einführung in die Programmierung leicht gemacht</p>
+        
+    <video class="stretch" data-autoplay videl-loop data-src="ProcessingLandschaft.mp4"></video>
+   
+        <p>Paola Maneggia <span style="font-size: 50%;">paola.maneggia@ifi.lmu.de</span></p>
+        <p style="font-size: 60%;">TdI @LMU - 05. Juni 2019<p>
+            
+    <aside class="notes">nicht besonders starke Schülerin am 13. November
+    </aside>
+</section>
+             
+          
+<!---------------------------->
+
+<section>
+    <section><h3>Processing</h3>
+        <p>Sprache und IDE, spezialisiert auf Grafik</p>
+        <img width="35%" height="35%" src="IMG_03-BildschirmfotoProcessing.png"/>
+        <p><small>MIT ab 2001</small></p>
+        <p><small><a href="https://medium.com/processing-foundation/a-modern-prometheus-59aed94abe85">A Modern Prometheus</a> - Artikel über Geschichte und Hintergrund in Medium.com</small></p>
+        <p>Standardsprache: <b>Java</b> (vereinfacht), Mode für <b>Python</b>, <b>openprocessing.org</b> und <b>p5.js</b> in <b>Javascript</b></p>
+    </section>
+    
+    <section><h3>Processing in einer 10. Klasse</h3>
+        <p>Schülerin: <q>"Zum ersten Mal macht Informatik richtig Spaß"</q></p>
+        <p>Eine andere Schülerin (Anfang November)</p>
+        <video class="stretch" data-autoplay video-loop data-src="ProcessingLandschaft.mp4"></video>
+    </section>
+    
+    <section><h3>Motivation</h3>
+        <p>Stark visuell basierte Umgebungen wecken das Interesse und unterstützen das Vorstellungsvermögen:</p>
+        <ul>
+        <li><a href="de.khanacademy.org">KhanAcademy: Javascript für Anfänger</a></li>
+        <li><a href="scratch.mit.edu">Scratch</a></li>
+        <li><a href="greenfoot.org">Greenfoot</a></li>
+        <li><a href="code.org">code.org</a></li>  
+        <li>Physical Computing, zum Beispiel der <a href="calliope.cc">Calliope Mini</a></li>
+        <li>iOS: Swift Playgrounds</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Ähnliche Tools</h3>
+        <ul>
+            <li><a href="http://ovtg-alt.ovtg.de/3_arbeit/informatik/JGUIWeb/JGUIStart.html">JGUI-Toolbox</a>, Hans Witt</li>
+            <li><a href="https://engine-alpha.org/wiki/Hauptseite">Engine Alpha</a>, Michael Ganshorn</li>
+            <li><a href="greenfoot.org">Greenfoot</a>, University of Kent</li>
+        </ul>
+    </section>   
+    
+    <section>
+            Alan Kay <a href="https://www.ted.com/talks/alan_kay_shares_a_powerful_idea_about_ideas?language=en">TED-Talk 2009</a>
+    </section>
+    
+</section>
+
+
+          
+<!---------------------------->  
+<section>
+    <section>
+        <h3>Gut zu wissen</h3>
+        <ul>
+        <li>Processing erzeugt einen sketch</li>
+        <li>Standardmäßig in einem Ordner <span class="monofont">Processing</span></li>
+        <li>Für jeden sketch erzeugt Processing automatisch einen Ordner mit dem gleichen Namen</li>
+        <li>In diesem Ordner befindet sich eine Datei mit dem gleichen Namen und mit der Endung <span style="color:darkorange">.pde</span></li>
+        <li>Gute Praxis: Für jede Klassendefinition einen neuen Reiter verwenden</li>
+        <li>Jeder neue Reiter entspricht einer weiteren .pde-Datei im sketch-Ordner</li>
+        <li>Bilder-Dateien direkt im sketch-Ordner oder im Unterordner <span class="monofont">data</span></li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Gut zu wissen</h3>
+        <p style="color:red">It looks like you're mixing "active" and "static" modes</p>
+        <ul>
+        <li><b>static mode</b>: nur Aufrufe von vorgegebenen Funktionen</li>
+            <li><b>active mode</b>: alles in Blöcken (wie <span class="monofont" style="color:cornflowerblue">setup()</span> und <span class="monofont" style="color:cornflowerblue">draw()</span>), bis auf Variablendeklarationen und Definitionen von Funktionen und Klassen</li>
+        <li>Die zwei Modi getrennt verwenden!</li>
+        <li>Mit Schülern lieber gleich dynamic mode zeigen und verwenden!</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Tweak Mode</h3>
+        <p>Menu "Sketch" > "Tweak" (Deutsch: "Optimieren")</p>
+        <p>oder Cmd+Shift+T (Ctrl+Shift+T on Windows).</p>
+<pre><code>void setup() {
+  size(600, 400);        
+}
+
+void draw() {
+  ellipse(20, 20, 50, 50);
+}</code></pre>
+        <p>tweak ausprobieren: Was bedeuten die vier Parameter der ellipse-Funktion?</p>
+    </section>
+    
+    <section>
+        <p>Autovervollständigung: Strg + Leerzeichen</p>
+        <p>Dokumentation: <a href="https://processing.org/reference/">https://processing.org/reference/</a></p>
+    </section>        
+    
+</section> 
+          
+          
+<!---------------------------->            
+<section>
+    <section><h3>Grundlagen</h3>
+    <img width="40%" height="40%" src="IMG_03-BildschirmfotoProcessing.png"/>
+        <p>Die zwei wichtigsten Blöcke sind: <span class="monofont" style="color:cornflowerblue">setup()</span> und <span class="monofont" style="color:cornflowerblue">draw()</span>. Der Inhalt von <span class="monofont" style="color:cornflowerblue">draw()</span> läuft in einer unendlichen Schleife.
+        </p>
+    </section>
+    
+    <section><h4>Draw</h4>
+        <p>Der Schwerpunkt von Processiong ist Grafik. Was der <span class="monofont" style="color:cornflowerblue">draw()</span>-Block ermöglicht, ist etwas zu zeichnen und einfache Animationen zu erzeugen. Beispiel: Code eingeben und auf die Taste "Play" drücken:</p> 
+        <p><img width="80%" height="80%" src="IMG_02_processing_play.png"></p>
+    </section>
+    
+    <section>
+        <p>Ein kleines grafisches Fenster wird angezeigt. In diesem Fenster steht ein Rechteck. Die vier Parameter, die das Rechteck bestimmen, sind in der Abbildung erklärt:</p> 
+        <p><img src="IMG_02_processing_play_2.png"/></p>
+    </section>
+    
+    <section><h4>Koordinaten im grafischen Fenster</h4>
+        <p><img src="IMG_02_processing_koordinates.png"/></p>
+    </section>
+    
+    <section><h4>Andere Befehle zum Zeichnen</h4>
+        <p><img src="IMG_02_processing_formen.png"/></p>
+        <p>Weitere: <a href="https://processing.org/reference/">https://processing.org/reference/</a></p>
+    </section>
+    
+    <section><h4>RGB-Farbensystem (Rot-Grün-Blau)</h4>
+        <p><img src="IMG_02_processing_farbe_rgb.png"/></p>
+        <p>Aufgabe: Ein oranges Rechteck mit lila Rand erzeugen!</p>
+    </section>
+    
+</section>    
+
+<!---------------------------->  
+<section>   
+    <section>
+        <h3>Grobplan 1</h3>
+        <ul>
+            <li>Processing: Leinwand &amp; Koordinaten, Rechteck &amp; Parameter, Grundfiguren, RGB-Farbsystem</li>
+            <li>Globale Variablen <span style="color:rgb(255,0,150)">width</span> und <span style="color:rgb(255,0,150)">height</span>, <span style="color:rgb(255,0,150)">mouseX</span>, <span style="color:rgb(255,0,150)">mouseY</span></li>
+            <li>Die Blöcke <span class="monofont"><span style="color:cornflowerblue">setup</span>()</span></li> und
+            <span class="monofont"><span style="color:cornflowerblue">draw</span>()</span>
+            <li>Kritikpunkt: Nicht "object-first"! (vgl JGUI-Toolbox, Engine Alpha, Greenfoot)</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h3>Grobplan 2</h3>
+        <ul>
+            <li>Begriff von Variable &rarr; sketch Ferrari, cookie clicker</li>
+            <li>Einfache Methoden definieren und aufrufen &rarr; Evolution der Ferrari-Implementierung</li>
+            <li>Objekt als Einheit von Eigenschaften und Fähigkeiten, Klasse als Bauplan für Objekte &rarr; weitere Evolution der Ferrari-Implementierung; der Konstruktor</li>
+            <li>Klassen weiter üben &rarr; Eule, Ball, Herbstlandschaft</li>
+        </ul>
+    </section>
+    
+    <section>
+        <ul>
+            <p>Grobplan 3</p>
+            <li>Methoden mit Eingabeparametern &rarr; Gesichter (? brauche bessere Idee)</li>
+            <li>Die bedingte Anweisung &rarr; der Processing-Block <span class="monofont"><span style="color:cornflowerblue">keyPressed</span>()</span></li>
+            <li>Zustandsautomaten</li>
+            <li>Methoden, die einen Wert zurückgeben</li>
+            <li>While- und for-Schleife</li>
+            <li>Array &rarr; Sakura</li>
+            <li>Vererbung</li>
+            <li>Projekt</li>
+        </ul>
+    </section>
+</section>    
+          
+<!---------------------------->  
+         
+<section>
+    
+    <section>
+        <h3>Der Begriff von Variable</h3>
+        <ul>
+            <li>der Ferrari</li>
+            <li>der cookie clicker</li>
+        </ul>
+        <p>Inspiriert von Alan Kays TED-Talk</p>
+    </section>
+    
+  <section>
+      <h3>Aufgabe Ferrari</h3>
+      <img src="IMG_04_FerrariMitFloat.png">
+  </section>    
+        
+  <section>
+      <h3>Anmerkung: Globale Variablen in Processing</h3>
+      <p>Viele Informationen über die Umgebung stehen durch globale Variable zur Verfügung</p>
+      <ul>
+        <li><span class="monospace" style="color:rgb(255,0,150)">mouseX</span>  Die x-Position der Maus (relativ zur Leinwand)</li> 
+        <li><span class="monospace" style="color:rgb(255,0,150)">mouseY</span></li> Die y-Position der Maus (relativ zur Leinwand) 
+        <li><span class="monospace" style="color:rgb(255,0,150)">width</span> Die Breite der Leinwand</li>
+        <li><span class="monospace" style="color:rgb(255,0,150)">height</span> Die Höhe der Leinwand</li>
+        <li><span class="monospace" style="color:rgb(255,0,150)">frameCount</span> Wie viele Frames wurden vom Start durchlaufen</li>
+        <li><span class="monospace" style="color:rgb(255,0,150)">frameRate</span> Wie viele Frames pro Sekunde werden wiedergegeben</li>  
+        <li></li>  
+      </ul>
+  </section> 
+          
+  <section>
+      <h3>Aufgabe</h3>
+      <p>Den Modulo-Operator und <span class="monospace" style="color:rgb(255,0,150)">width</span> verwenden, so dass, wenn der Ferrari rechts aus der Leinwand fährt, er wieder von links anfängt.</p>
+     
+      <p>Eine Variable für die Geschwindigkeit ergänzen und die Geschwindigkeit via <span class="monospace" style="color:rgb(255,0,150)">mouseY</span> kontrollieren.</p>
+  </section>         
+    
+  <section><h4>Mausklick</h4>
+      <span><pre><code>void mouseClicked() {
+  x = mouseX; // Beim Mausklick x-Position des Autos setzen 
+}</code></pre></span>
+  </section>
+
+  <section><h4>Tastatur</h4>
+      <span><pre><code>void keyPressed() {
+  x = 0;  // beliebige Taste -> Ferrari zürück zum Anfang
+}</code></pre></span>
+  </section>
+    
+    
+  <section><h4>Aufgabe: cookie clicker  <img style="vertical-align:bottom;" width="10%" height="10%"  src="gingerman.png"/></h4>
+      <ul>
+      <li>Eine variable <span class="monofont"><span style="color:orange">int</span> cookies</span> für die Anzahl von Keksen, am Anfang 0, eine Variable <span class="monofont" style="color:orange">int multiplikator</span> für einen Multiplikator, am Anfang 1.</li>
+      <li>Jeder Mausklick verdient "multiplikator" cookies.</li>
+      <li>Mit cookies kann man bezahlen, um den Multiplikator um eins zu verbessern!</li>
+      <li>Multiplikator <em>kaufen</em> mit Taste 'k'.</li>
+      </ul>
+  </section>    
+          
+  <section>
+      <ul>
+        <li>Hintergrundbild laden mit <span class="monofont"><span style="color:cornflowerblue">background</span>(<span style="color:cornflowerblue">loadImage</span>("datei_name"));</span> Die Leinwand muss genau die gleiche Größe in Pixel haben wie das Hintergrundbild. Die Bild-Datei muss im gleichen Ordner wie die .pde Datei oder noch besser: im Unterordner <span class="monofont">data</span> gespeichert sein.</li>
+        <li>Gingerman-Bild von <a href="pixabay.com">pixabay.com</a></li>
+      </ul>
+  </section>
+    
+</section>          
+          
+          
+<!---------------------------->
+
+<section>
+    <section>
+        <h3>Best Practice mit Objekten</h3>
+        
+        <p>Für jede Klasse einen neuen Reiter mit dem gleichen Namen wie die Klasse verwenden</p>
+        
+        <p>Objekte im <span class="monofont" style="color:cornflowerblue">setup()</span>-Block erzeugen</p>
+        
+        <p>Objekte (die eine graphische Darstellung erfordern) mit einer <span>anzeigen()-Methode ergänzen</span></p> 
+    </section>
+    
+    <section>
+        <img src="IMG_05_bestPractice_1.png">    
+    </section>
+    
+    <section>
+        <img src="IMG_05_bestPractice_2.png">
+    </section>
+    
+    
+</section>
+          
+<!---------------------------->
+
+<section>
+    <section>
+        <h3>Agar.io</h3>
+        <p>Nur als Übung oder nach dem Üben auch als Leistungserhebung?</p>
+        <img src="IMG_06_agario.png">
+    </section>
+</section>  
+
+<!---------------------------->
+
+<section>
+    <section>
+        <h3>The Codint Train</h3>
+        <p>Daniel Shiffman</p>
+        <a href="https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw">YouTube Channel</a>
+    </section>
+</section>            
+    
+          
+<!---------------------------->  
+    
+<section data-background-image="IMG_06_agario.png">
+    <h1>Danke!</h1>
+    <p> </p>
+</section>          
+  
+<!---------------------------->
+    
+          
+          
+<!---------------------------->
+</div>
+</body>
+    
+  <!--- after body, some more scripts --->
+    
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        //history: true, //if true, Push each slide change to the browser history        
+        transition: 'convex', // default/cube/page/concave/zoom/linear/fade/none
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            //{ src: '../plugin/markdown/marked.js' },
+            //{ src: '../plugin/markdown/markdown.js' },
+            { src: 'plugin/notes/notes.js', async: true },
+            { src: 'plugin/math/math.js', async: true }, //this line I added myself
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+  </script>  
+</html>
